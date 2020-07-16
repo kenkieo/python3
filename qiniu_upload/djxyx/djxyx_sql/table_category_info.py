@@ -6,6 +6,7 @@ from qiniu_upload.djxyx.djxyx_sql.sql_base import Base, session
 
 class CategoryInfo(Base):
     __tablename__ = 'category_info'
+    __table_args__ = {"useexisting": True}
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(32))
 

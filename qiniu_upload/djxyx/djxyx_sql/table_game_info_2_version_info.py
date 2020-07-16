@@ -6,6 +6,7 @@ from qiniu_upload.djxyx.djxyx_sql.sql_base import Base, session
 
 class GameInfo2VersionInfo(Base):
     __tablename__ = 'game_info_2_version_info'
+    __table_args__ = {"useexisting": True}
     id = Column(Integer, primary_key=True, autoincrement=True)
     # 指定name映射到name字段; name字段为字符串类形，
     versionId = Column(Integer)
@@ -22,3 +23,7 @@ def insert_GameInfo2VersionInfo_not_exists(versionId, gameId):
         session.add(gameInfo2VersionInfo)
         session.commit()
     return gameInfo2VersionInfo
+
+
+def query_GameInfo2VersionInfo(versionId):
+    return session.query(GameInfo2VersionInfo).filter_by(versionId=versionId).first();

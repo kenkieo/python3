@@ -8,6 +8,7 @@ from hashlib import md5
 
 class GameInfo(Base):
     __tablename__ = 'game_info'
+    __table_args__ = {"useexisting": True}
     id = Column(Integer, primary_key=True, autoincrement=True)
     # 指定name映射到name字段; name字段为字符串类形，
     icon = Column(Text)
@@ -29,6 +30,14 @@ def insert_gameInfo(id, icon, name, info):
         gameInfo.md5 = md5_util.hexdigest()
         session.add(gameInfo)
     return gameInfo
+
+
+def queryGameInfoList():
+    return session.query(GameInfo)
+
+
+def queryGameInfo(id):
+    return session.query(GameInfo).filter_by(id=id).first()
 
 
 if __name__ == "__main__":

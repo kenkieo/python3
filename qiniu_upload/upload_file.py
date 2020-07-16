@@ -24,6 +24,7 @@ def upload_file(bucket_name, key, local_path, callback, **kwargs):
 
 
 def sync_url(url, bucket_name, key):
+    print("sync_url", url, bucket_name, key)
     bucket = BucketManager(q)
     ret, info = bucket.fetch(url, bucket_name, key)
     print(info)
