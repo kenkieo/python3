@@ -1,7 +1,7 @@
 from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import Integer
 
-from qiniu_upload.djxyx.djxyx_sql.sql_base import Base
+from qiniu_upload.djxyx.djxyx_sql.sql_base import Base, session
 
 
 class GameInfo2TagInfo(Base):
@@ -10,3 +10,14 @@ class GameInfo2TagInfo(Base):
     # 指定name映射到name字段; name字段为字符串类形，
     tagId = Column(Integer)
     gameId = Column(Integer)
+
+
+def insert_gameInfo2TagInfo_not_exists(tagId, gameId):
+    gameInfo2TagInfo = session.query(GameInfo2TagInfo).filter_by(tagId=tagId, gameId=gameId).first()
+    if not gameInfo2TagInfo:
+        gameInfo2TagInfo = GameInfo2TagInfo()
+        gameInfo2TagInfo.tagId = tagId
+        gameInfo2TagInfo.gameId = gameId
+        session.add(gameInfo2TagInfo)
+        session.commit()
+    return gameInfo2TagInfo

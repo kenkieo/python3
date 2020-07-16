@@ -12,5 +12,9 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
+def commit():
+    session.commit()
+
+
 def create_tables():
     Base.metadata.create_all(engine, checkfirst=True)

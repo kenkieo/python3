@@ -1,22 +1,20 @@
 from sqlalchemy.sql.schema import Column
-from sqlalchemy.sql.sqltypes import Integer, String, Text
+from sqlalchemy.sql.sqltypes import Integer, Text
 
 from qiniu_upload.djxyx.djxyx_sql.sql_base import Base, session
 from qiniu_upload.djxyx.djxyx_sql.sql_base import engine
 from hashlib import md5
 
 
-class GameInfo(Base):
-    __tablename__ = 'game_info'
+class Data2Qiniu(Base):
+    __tablename__ = 'data2qiniu'
     id = Column(Integer, primary_key=True, autoincrement=True)
     # 指定name映射到name字段; name字段为字符串类形，
     icon = Column(Text)
-    name = Column(String(32))
-    info = Column(Text)
-    md5 = Column(String(32))
+    url = Column(Text)
 
 
-def insert_gameInfo(id, icon, name, info):
+def insert_gameInfo(id):
     gameInfo = session.query(GameInfo).filter_by(id=id).first()
     if not gameInfo:
         gameInfo = GameInfo()

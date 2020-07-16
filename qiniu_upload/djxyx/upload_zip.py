@@ -2,6 +2,7 @@ from qiniu_upload.djxyx.djxyx_sql.table_game_info import game_info, GAME_INFO_TA
 from qiniu_upload.upload_file import upload_file
 import os
 from hashlib import md5
+import requests
 
 md5__ = md5()
 BUCKET_NAME = "kaniang"
@@ -27,6 +28,10 @@ def call_back(bucket_name, key, **kwargs):
     name = kwargs['name']
     print(down_url, md5_str, file_size, name)
     game_info.insert_down_url(down_url, md5_str, file_size, name)
+
+
+zone = "api-z2.qiniu.com"
+request_url = "https://%s/sisyphus/fetch" % zone
 
 
 if __name__ == '__main__':

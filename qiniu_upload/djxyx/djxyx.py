@@ -1,6 +1,5 @@
-import sqlite3
+import time
 
-
-sql = "CREATE TABLE IF NOT EXISTS %s ("
-def create_game_info():
-    pass
+from hashlib import md5
+print(dir(md5()))
+print(int(time.strftime("%Y%m%d%H", time.localtime())))

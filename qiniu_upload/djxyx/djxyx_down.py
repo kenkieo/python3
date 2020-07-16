@@ -2,10 +2,17 @@ string = """
 {"code":200,"msg":"成功","data":{"gameCenterType":2,"gameCenterVersion":"1.0.8","gameCenterID":0,"gameCenterData":[{"id":115629003,"name":"游戏分类","min_name":"","compact":8,"styleCode":"category","showmore":1,"icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8adada6c26b.png","bg_pic":"","coins":100,"color_start":"","color_end":"","showtitle":1,"coins_icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/44jinbi.png","highrewardcoin":0,"rewardcoefficient":1,"rankList":[],"gameList":[],"signList":[],"categoryList":[{"id":55717,"name":"休闲游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d881a91d9a98.png"},{"id":55721,"name":"益智游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d881afea8343.png"},{"id":55718,"name":"角色扮演","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d881ac766d2c.png"},{"id":55714,"name":"创意游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d881a4e1949a.png"},{"id":55720,"name":"解谜游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d887f1a002c2.png"},{"id":55719,"name":"策略游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d887f0ec9229.png"},{"id":55716,"name":"最新上架","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d881a873b0c0.png"},{"id":55715,"name":"朋友热玩","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190923\/5d881a7d66343.png"},{"id":55724,"name":"竞技游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae1bfd5870.png"},{"id":55728,"name":"模拟养成","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae1fb78e51.png"},{"id":55725,"name":"跑酷游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae23a50ba6.png"},{"id":55723,"name":"棋牌游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae15a76909.png"},{"id":55730,"name":"放置游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae20e71f60.png"},{"id":55727,"name":"射击游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae217b2df7.png"},{"id":55729,"name":"体育游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae20693b69.png"},{"id":55726,"name":"赛车游戏","icon":"http:\/\/dl3.mgc-games.com\/access\/upload\/20190925\/5d8ae22ca918b.png"}]}],"myGamePosition":3}}
 """
 
-from urllib import request
 import json
-from qiniu_upload.djxyx.djxyx_sql import session
-from qiniu_upload.djxyx.djxyx_sql import CategoryInfo
+import time
+from urllib import request
+
+from qiniu_upload.djxyx.djxyx_sql import insert_GameInfo2VersionInfo_not_exists
+from qiniu_upload.djxyx.djxyx_sql import insert_categoryInfo
+from qiniu_upload.djxyx.djxyx_sql import insert_gameInfo
+from qiniu_upload.djxyx.djxyx_sql import insert_gameInfo2CategoryInfo
+from qiniu_upload.djxyx.djxyx_sql import insert_gameInfo2TagInfo_not_exists
+from qiniu_upload.djxyx.djxyx_sql import insert_tagInfo
+from qiniu_upload.djxyx.djxyx_sql import insert_versionInfo
 
 
 def parse_category():
@@ -15,20 +22,17 @@ def parse_category():
     for gameCenterItem in gameCenterData:
         categoryList = gameCenterItem["categoryList"]
         for category_item in categoryList:
-            request_category_item_game(category_item)
+            category = request_category_item_game(category_item)
+            request_category_item_game_page(category, category.id, 1)
 
 
 def request_category_item_game(category_item):
     id = category_item["id"]
     name = category_item["name"]
-    category = CategoryInfo()
-    category.id = id
-    category.name = name
-    session.add(category)
-    session.commit()
+    return insert_categoryInfo(id, name)
 
 
-def request_category_item_game_page(lid, page):
+def request_category_item_game_page(categoryInfo, lid, page):
     url = "http://search.mgc-games.com:8711/api/v7/charge/more?" \
           "lid=%d" \
           "&offset=10" \
@@ -56,13 +60,35 @@ def request_category_item_game_page(lid, page):
     if data:
         for game_item in data:
             id = game_item["id"]
-            name = game_item["name"]
             icon = game_item["icon"]
+            name = game_item["name"]
+            info = game_item["publicity"]
+            gameInfo = insert_gameInfo(id, icon, name, info)
+            gameInfo2CategoryInfo = insert_gameInfo2CategoryInfo(categoryInfo.id, gameInfo.id)
+            tags = game_item["tags"]
+            print(id, icon, name, info, tags)
+            print(gameInfo.id)
+            print(gameInfo2CategoryInfo.id)
+            if isinstance(tags, list):
+                for tag in tags:
+                    tagInfo = insert_tagInfo(tag)
+                    gameInfo2TagInfo = insert_gameInfo2TagInfo_not_exists(tagInfo.id, gameInfo.id)
+                    print(tagInfo.id)
+                    print(gameInfo2TagInfo.id)
+
             packageurl = game_item["packageurl"]
             version = game_item["version"]
-            deviceOrientation = game_item["portrait"]
-            tags = game_item["tags"]
-            publicity = game_item["publicity"]
+            deviceOrientation = game_item["deviceOrientation"]
+            orientation = 0
+            if deviceOrientation == "portrait":
+                orientation = 1
+            version_code = int(time.strftime("%Y%m%d%H", time.localtime()))
+            versionInfo = insert_versionInfo(packageurl, 0, version, version_code, orientation)
+            print(versionInfo.id)
+            gameInfo2VersionInfo = insert_GameInfo2VersionInfo_not_exists(versionInfo.id, gameInfo.id)
+            print(gameInfo2VersionInfo.id)
+
+        request_category_item_game_page(categoryInfo, lid, page + 1)
 
 
 if __name__ == "__main__":

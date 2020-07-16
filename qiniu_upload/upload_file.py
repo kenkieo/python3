@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 from qiniu import Auth, put_file, etag
+import requests
 
 # 需要填写你的 Access Key 和 Secret Key
+from qiniu.services.storage.bucket import BucketManager
+
 access_key = 'O98cyLYXwSzsky-PYfERQPqYXtSGNtGQIayHNRi-'
 secret_key = 'OZctQQS4P-YLMcpwAmOW6nKwWn-XlwffPbUj6FyC'
 # 构建鉴权对象
@@ -20,10 +23,16 @@ def upload_file(bucket_name, key, local_path, callback, **kwargs):
         callback(bucket_name, key, **kwargs)
 
 
-# http://qiniu2.kaniang.com//djxyx/a.jpg
-# http://qiniu2.kaniang.com//djxyx/b.png
+def sync_url(url, bucket_name, key):
+    bucket = BucketManager(q)
+    ret, info = bucket.fetch(url, bucket_name, key)
+    print(info)
+    assert ret['key'] == key
+
+
 if __name__ == "__main__":
-    upload_file("kaniang",
-                "djxyx/b.png",
-                r"F:\android\MyApplication\app\src\main\res\mipmap-xxxhdpi\\ic_launcher.png",
-                None)
+    zone = "api-z2.qiniu.com"
+    request_url = "https://%s/sisyphus/fetch" % zone
+    url = "http://dl3.mgc-games.com/sdkgame/1000880/The king of Archers_pack.zip"
+    key = "2204114da4362fd4fb56ccbf3f3c14e9/game.zip"
+    sync_url(url, "kaniang", key)
