@@ -1,0 +1,206 @@
+     ____
+    / _  |   Frida 12.10.4 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://www.frida.re/docs/home/
+Spawning `com.mksh.tky`...
+Spawned `com.mksh.tky`. Resuming main thread!
+[Redmi 7::com.mksh.tky]-> Tracing requestSynchronized [6 overload(s)]
+Hook Start...
+a 1024
+b d008219b14c84872559aaf9e69d1348175289c186912da64b2393bab376bb0d6b471220cb29cbc9875b148b593eb9d7c4c359549a1aff22f6de9d18d22f0b6cb
+c 1f228b2b8fbb7317674db20bab1d4b0f0ddb3e1f3a93177f1821c026ffd7c6b782be720a308ab69bf6c631c3c0c4d68bf9d92ddaaf712a032d591ba1c296df13332a23e37b281e5fd9b93ab016dd3efc5de45e264ed692ac63ac40013f507cd272b7aeeb85be9fe2f31f11b8c55d904b5331932c70c7cf3f2b05cb802f6b89a7
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator$1.doNext(MobCommunicator.java:72)
+	at com.mob.tools.RxMob$QuickSubscribe.call(RxMob.java:164)
+	at com.mob.tools.RxMob$Subscribable$2.run(RxMob.java:134)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {appPackage=com.mksh.tky, appVersion=1.7.0, duid=0, old=false, simserial=-1, appkey=2fa43e8cb4552, sdkVersion=20008, plat=1, md5=018a0bcf7b9b56f68bfc0a10bd5fe5f7}
+arg[3]: http://api.verify.mob.com/api/initSec
+arg[4]: false
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:115)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator$1.doNext(MobCommunicator.java:72)
+	at com.mob.tools.RxMob$QuickSubscribe.call(RxMob.java:164)
+	at com.mob.tools.RxMob$Subscribable$2.run(RxMob.java:134)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {"appPackage":"com.mksh.tky","appVersion":"1.7.0","duid":0,"old":false,"simserial":"-1","appkey":"2fa43e8cb4552","sdkVersion":20008,"plat":"1","md5":"018a0bcf7b9b56f68bfc0a10bd5fe5f7"}
+arg[3]: http://api.verify.mob.com/api/initSec
+arg[4]: false
+nretval: {ctccLogin={agreement=https://e.189.cn/sdk/agreement/content.do?type=main&appKey=&hidetop=true&returnUrl=, clientId=8238430281, clientSecret=zUVAQ9Ciza37Yc3TDWh5Ugt2uaFJMqs9}, cuccLogin={agreement=https://e.189.cn/sdk/agreement/content.do?type=main&appKey=&hidetop=true&returnUrl=, clientId=81cf19ffc4793358813246ec97ab0c2350f02663, clientSecret=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYDyexTgFzXTbM4QmHQVt/+KfdXknRqsS9rlSZa7HsuNaXob3ctIuEaanvmqcwu8dQh8dC1pHHlHlUC7C3ad6fRxQM91Uts3xvbZqzE5lwWDIYtRfYTspmZk3LU2nqiFM7yv4hLg9tcONpTVA5CD9XCbzdNPBKWRyDBXEjN5JqsQIDAQAB}, cmccLogin={agreement=https://www.baidu.com/s?wd=CMCC, clientId=300011977908, clientSecret=A1BEDFC4AD0AA21DF06138F6E28B0BF4}, version=2.0.4}
+n*** exiting requestSynchronized
+nretval: {ctccLogin={agreement=https://e.189.cn/sdk/agreement/content.do?type=main&appKey=&hidetop=true&returnUrl=, clientId=8238430281, clientSecret=zUVAQ9Ciza37Yc3TDWh5Ugt2uaFJMqs9}, cuccLogin={agreement=https://e.189.cn/sdk/agreement/content.do?type=main&appKey=&hidetop=true&returnUrl=, clientId=81cf19ffc4793358813246ec97ab0c2350f02663, clientSecret=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYDyexTgFzXTbM4QmHQVt/+KfdXknRqsS9rlSZa7HsuNaXob3ctIuEaanvmqcwu8dQh8dC1pHHlHlUC7C3ad6fRxQM91Uts3xvbZqzE5lwWDIYtRfYTspmZk3LU2nqiFM7yv4hLg9tcONpTVA5CD9XCbzdNPBKWRyDBXEjN5JqsQIDAQAB}, cmccLogin={agreement=https://www.baidu.com/s?wd=CMCC, clientId=300011977908, clientSecret=A1BEDFC4AD0AA21DF06138F6E28B0BF4}, version=2.0.4}
+n*** exiting requestSynchronized
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator$1.doNext(MobCommunicator.java:72)
+	at com.mob.tools.RxMob$QuickSubscribe.call(RxMob.java:164)
+	at com.mob.tools.RxMob$Subscribable$2.run(RxMob.java:134)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {appPackage=com.mksh.tky, appVersion=1.7.0, duid=4ab804228d4951c04878f7283be8e90a48f4cf5f, simserial=-1, appkey=2fa43e8cb4552, sdkVersion=20008, plat=1, md5=018a0bcf7b9b56f68bfc0a10bd5fe5f7}
+arg[3]: http://api.verify.mob.com/api/pv
+arg[4]: false
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:115)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator$1.doNext(MobCommunicator.java:72)
+	at com.mob.tools.RxMob$QuickSubscribe.call(RxMob.java:164)
+	at com.mob.tools.RxMob$Subscribable$2.run(RxMob.java:134)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {"appPackage":"com.mksh.tky","appVersion":"1.7.0","duid":"4ab804228d4951c04878f7283be8e90a48f4cf5f","simserial":"-1","appkey":"2fa43e8cb4552","sdkVersion":20008,"plat":"1","md5":"018a0bcf7b9b56f68bfc0a10bd5fe5f7"}
+arg[3]: http://api.verify.mob.com/api/pv
+arg[4]: false
+nretval: null
+n*** exiting requestSynchronized
+nretval: null
+n*** exiting requestSynchronized
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator$1.doNext(MobCommunicator.java:72)
+	at com.mob.tools.RxMob$QuickSubscribe.call(RxMob.java:164)
+	at com.mob.tools.RxMob$Subscribable$2.run(RxMob.java:134)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {list=[{errorInfo=, language=zh_CN, type=preVerify, sys=28, deviceId=4ab804228d4951c04878f7283be8e90a48f4cf5f, pkg=com.mksh.tky, operator=CELLULAR_DISABLED, errorMsg=Çë´ò¿ª·äÎÑÍøÂç :
+	 , isError=true, sdkver=2.0.8, appkey=2fa43e8cb4552, model=Redmi 7, plat=1, time=1594990673534, net=wifi, md5=018a0bcf7b9b56f68bfc0a10bd5fe5f7}]}
+arg[3]: http://api.verify.mob.com/api/log
+arg[4]: false
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:115)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator$1.doNext(MobCommunicator.java:72)
+	at com.mob.tools.RxMob$QuickSubscribe.call(RxMob.java:164)
+	at com.mob.tools.RxMob$Subscribable$2.run(RxMob.java:134)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {"list":[{"errorInfo":"","language":"zh_CN","type":"preVerify","sys":"28","deviceId":"4ab804228d4951c04878f7283be8e90a48f4cf5f","pkg":"com.mksh.tky","operator":"CELLULAR_DISABLED","errorMsg":"Çë´ò¿ª·äÎÑÍøÂç :\n\t ","isError":true,"sdkver":"2.0.8","appkey":"2fa43e8cb4552","model":"Redmi 7","plat":"1","time":1594990673534,"net":"wifi","md5":"018a0bcf7b9b56f68bfc0a10bd5fe5f7"}]}
+arg[3]: http://api.verify.mob.com/api/log
+arg[4]: false
+nretval: null
+n*** exiting requestSynchronized
+nretval: null
+n*** exiting requestSynchronized
+Hook Start...
+a 1024
+b ab0a0a6473d1891d388773574764b239d4ad80cb2fd3a83d81d03901c1548c13fee7c9692c326e6682b239d4c5d0021d1b607642c47ec29f10b0602908c3e6c9
+c 23c3c8cb41c47dd288cc7f4c218fbc7c839a34e0a0d1b2130e87b7914936b120a2d6570ee7ac66282328d50f2acfd82f2259957c89baea32547758db05de9cd7c6822304c8e45742f24bbbe41c1e12f09e18c6fab4d078065f2e5aaed94c900c66e8bbf8a120eefa7bd1fb52114d529250084f5f6f369ed4ce9645978dd30c51
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.commons.d.b(DyLogUploader.java:241)
+	at com.mob.commons.d.a(DyLogUploader.java:221)
+	at com.mob.commons.d.d(DyLogUploader.java:189)
+	at com.mob.commons.d.handleMessage(DyLogUploader.java:133)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:201)
+	at com.mob.tools.MobHandlerThread.run(MobHandlerThread.java:56)
+	at com.mob.tools.MobHandlerThread$1.run(MobHandlerThread.java:136)
+
+
+arg[0]: {sysverint=28, duid=4ab804228d4951c04878f7283be8e90a48f4cf5f, appver=91, imsi=null, clientTime=1594990681433, mac=bc:7f:a4:dd:a3:77, sdkver=20200609, appmd5=018a0bcf7b9b56f68bfc0a10bd5fe5f7, lock=1, model=Redmi 7, plat=1, networkType=wifi, brand=xiaomi, factory=Xiaomi, sysver=9, uiver=V10, apppkg=com.mksh.tky, serialNo=fa0dbb5, home=0, carrier=46002, imei=null, appkey=2fa43e8cb4552, front=true, androidid=af3bfd4279f6a5a8, errors={sd=9518986b-bca8-4dd5-984e-68e9855d017a, list=[{ct=1594990671390, mg=[2020-07-17 20:57:51.390 GMT+08:00][8][18] ld vr 18, et=8, po=18}]}}
+arg[1]: http://dfe.mic.mob.com/drl
+arg[2]: false
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:89)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.commons.d.b(DyLogUploader.java:241)
+	at com.mob.commons.d.a(DyLogUploader.java:221)
+	at com.mob.commons.d.d(DyLogUploader.java:189)
+	at com.mob.commons.d.handleMessage(DyLogUploader.java:133)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:201)
+	at com.mob.tools.MobHandlerThread.run(MobHandlerThread.java:56)
+	at com.mob.tools.MobHandlerThread$1.run(MobHandlerThread.java:136)
+
+
+arg[0]: null
+arg[1]: {sysverint=28, duid=4ab804228d4951c04878f7283be8e90a48f4cf5f, appver=91, imsi=null, clientTime=1594990681433, mac=bc:7f:a4:dd:a3:77, sdkver=20200609, appmd5=018a0bcf7b9b56f68bfc0a10bd5fe5f7, lock=1, model=Redmi 7, plat=1, networkType=wifi, brand=xiaomi, factory=Xiaomi, sysver=9, uiver=V10, apppkg=com.mksh.tky, serialNo=fa0dbb5, home=0, carrier=46002, imei=null, appkey=2fa43e8cb4552, front=true, androidid=af3bfd4279f6a5a8, errors={sd=9518986b-bca8-4dd5-984e-68e9855d017a, list=[{ct=1594990671390, mg=[2020-07-17 20:57:51.390 GMT+08:00][8][18] ld vr 18, et=8, po=18}]}}
+arg[2]: http://dfe.mic.mob.com/drl
+arg[3]: false
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:93)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:89)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.commons.d.b(DyLogUploader.java:241)
+	at com.mob.commons.d.a(DyLogUploader.java:221)
+	at com.mob.commons.d.d(DyLogUploader.java:189)
+	at com.mob.commons.d.handleMessage(DyLogUploader.java:133)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:201)
+	at com.mob.tools.MobHandlerThread.run(MobHandlerThread.java:56)
+	at com.mob.tools.MobHandlerThread$1.run(MobHandlerThread.java:136)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {sysverint=28, duid=4ab804228d4951c04878f7283be8e90a48f4cf5f, appver=91, imsi=null, clientTime=1594990681433, mac=bc:7f:a4:dd:a3:77, sdkver=20200609, appmd5=018a0bcf7b9b56f68bfc0a10bd5fe5f7, lock=1, model=Redmi 7, plat=1, networkType=wifi, brand=xiaomi, factory=Xiaomi, sysver=9, uiver=V10, apppkg=com.mksh.tky, serialNo=fa0dbb5, home=0, carrier=46002, imei=null, appkey=2fa43e8cb4552, front=true, androidid=af3bfd4279f6a5a8, errors={sd=9518986b-bca8-4dd5-984e-68e9855d017a, list=[{ct=1594990671390, mg=[2020-07-17 20:57:51.390 GMT+08:00][8][18] ld vr 18, et=8, po=18}]}}
+arg[3]: http://dfe.mic.mob.com/drl
+arg[4]: false
+n*** entered requestSynchronized
+nBacktrace:njava.lang.Exception
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:115)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:93)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.MobCommunicator.requestSynchronized(MobCommunicator.java:89)
+	at com.mob.MobCommunicator.requestSynchronized(Native Method)
+	at com.mob.commons.d.b(DyLogUploader.java:241)
+	at com.mob.commons.d.a(DyLogUploader.java:221)
+	at com.mob.commons.d.d(DyLogUploader.java:189)
+	at com.mob.commons.d.handleMessage(DyLogUploader.java:133)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:201)
+	at com.mob.tools.MobHandlerThread.run(MobHandlerThread.java:56)
+	at com.mob.tools.MobHandlerThread$1.run(MobHandlerThread.java:136)
+
+
+arg[0]: true
+arg[1]: null
+arg[2]: {"sysverint":28,"duid":"4ab804228d4951c04878f7283be8e90a48f4cf5f","appver":91,"clientTime":1594990681433,"mac":"bc:7f:a4:dd:a3:77","sdkver":20200609,"appmd5":"018a0bcf7b9b56f68bfc0a10bd5fe5f7","lock":1,"model":"Redmi 7","plat":1,"networkType":"wifi","brand":"xiaomi","factory":"Xiaomi","sysver":"9","uiver":"V10","apppkg":"com.mksh.tky","serialNo":"fa0dbb5","home":0,"carrier":"46002","appkey":"2fa43e8cb4552","front":true,"androidid":"af3bfd4279f6a5a8","errors":{"sd":"9518986b-bca8-4dd5-984e-68e9855d017a","list":[{"ct":1594990671390,"mg":"[2020-07-17 20:57:51.390 GMT+08:00][8][18] ld vr 18","et":8,"po":18}]}}
+arg[3]: http://dfe.mic.mob.com/drl
+arg[4]: false
+nretval: null
+n*** exiting requestSynchronized
+nretval: null
+n*** exiting requestSynchronized
+nretval: null
+n*** exiting requestSynchronized
+nretval: null
+n*** exiting requestSynchronized

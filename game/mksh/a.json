@@ -1,0 +1,228 @@
+{
+  "updateAt": 1545204873539,
+  "zoneAt": 1517389200000,
+  "result": {
+    "urls": [
+      {
+        "name": "getToken",
+        "host": "sdkapi.sms.mob.com",
+        "port": 80,
+        "action": "/v3/token/get",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "sign",
+          "apppkg",
+          "appver",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "getFriend",
+        "host": "addrlist.sms.mob.com",
+        "port": 80,
+        "action": "/v3/relat/fm",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "contactphones",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "sendTextSMS",
+        "host": "code.sms.mob.com",
+        "port": 80,
+        "action": "/v3/verify/code",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "zone",
+          "phone",
+          "simserial",
+          "myPhone",
+          "tempCode",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "verifyCode",
+        "host": "code.sms.mob.com",
+        "port": 80,
+        "action": "/v3/client/verification",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "zone",
+          "phone",
+          "code",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "getZoneList",
+        "host": "sdkapi.sms.mob.com",
+        "port": 80,
+        "action": "/v3/utils/zonelist",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "getFriendNew",
+        "host": "addrlist.sms.mob.com",
+        "port": 80,
+        "action": "/v3/relat/fm/new",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "contactphones",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "submitUser",
+        "host": "sdkapi.sms.mob.com",
+        "port": 80,
+        "action": "/v3/app/submituserinfo",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "zone",
+          "phone",
+          "uid",
+          "nickname",
+          "avatar",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "sendVoiceSMS",
+        "host": "code.sms.mob.com",
+        "port": 80,
+        "action": "/v3/voice/verify/code",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "zone",
+          "phone",
+          "md5"
+        ],
+        "zip": 0,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "uploadContacts",
+        "host": "addrlist.sms.mob.com",
+        "port": 80,
+        "action": "/v3/relat/apply",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "apppkg",
+          "appver",
+          "token",
+          "zone",
+          "myPhone",
+          "simserial",
+          "operator",
+          "secretKey",
+          "contacts",
+          "imsi",
+          "md5"
+        ],
+        "zip": 1,
+        "request": 1,
+        "frequency": 0
+      },
+      {
+        "name": "uploadContactsNew",
+        "host": "addrlist.sms.mob.com",
+        "port": 80,
+        "action": "/v3/relat/apply/new",
+        "params": [
+          "appkey",
+          "duid",
+          "sdkver",
+          "plat",
+          "zone",
+          "myPhone",
+          "simserial",
+          "operator",
+          "secretKey",
+          "contacts",
+          "md5"
+        ],
+        "zip": 1,
+        "request": 1,
+        "frequency": 0
+      }
+    ]
+  },
+  "uploadContacts": 0,
+  "request": 1,
+  "isSensitiveOrigin": false
+}
