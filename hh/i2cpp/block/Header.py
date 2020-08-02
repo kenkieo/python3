@@ -13,7 +13,7 @@ class Header(Basic):
 
         self.strings_content_offset = 0  # 字符串偏移量起始
         self.strings_content_size = 0  # 字符串偏移量大小
-        self.string_data = None
+        self.string_data = []
 
         self.other = None
 
@@ -88,15 +88,18 @@ class Header(Basic):
         self.string_length_data = [[self.read_int_32(), self.read_int_32()] for i in range(self.strings_length_content_size // 8)]
 
         self.seek(self.strings_content_offset)
-        self.string_data = [self.read_string(i[0]) for i in self.string_length_data]
+        for index, i in enumerate(self.string_length_data):
+            key = self.read_string(i[0])
+            self.string_data.append("%d_%s" % (index, key))
 
     def encode(self):
         data = bytearray()
         string_length_data = bytearray()
         string_content_data = bytearray()
         offset = 0
-        for index, item in enumerate(self.json_result.items()):
-            key, value = item
+        for index, json_key in enumerate(self.string_data):
+            key = json_key[len("%d_" % index):]
+            value = self.json_result.get(json_key, "")
             key_encode, value_encode = key.encode(), value.encode()
             item_length = len(value_encode) if value else len(key_encode)
             string_length_data.extend(item_length.to_bytes(4, byteorder='little'))

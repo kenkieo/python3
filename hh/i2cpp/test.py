@@ -1,8 +1,9 @@
-import os
 import json
+import os
 
 from i2cpp.block.Basic import Basic
-from i2cpp.block.Header import Header
+
+from hh.i2cpp.block.Header import Header
 
 GLOBAL_METADATA_NAME = 'global-metadata.dat'
 JSON_RESULT = 'result.json'
@@ -39,8 +40,8 @@ def encode(global_metadata_dir):
     if not os.path.exists(ok_dir):
         os.mkdir(ok_dir)
     Basic.write_f = open(os.path.join(ok_dir, file_name), 'wb')
-    Basic.json_result = read_json(json_path)
     header = Header()
+    header.json_result = read_json(json_path)
     header.decode()
     header.encode()
     header.close()
